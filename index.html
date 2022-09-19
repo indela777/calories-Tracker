@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Calories Tracker</h1>
+        <form id="form1" onsubmit="group1()">
+            <div>
+                <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">BreakFast <br>
+                <input type="radio" id="Lunch" name="meals_type" value="Lunch">Lunch <br>
+                <input type="radio" id="Dinner" name="meals_type" value="Dinner">Dinner
+            </div>
+            <div>
+                <input type="number" placeholder="Add Calories" id="Calories"> : Calories
+            </div>
+            <div>
+                <textarea placeholder="please enter Description"></textarea>
+            </div>
+            <div>
+                <input type="time" id="appt" name="appt">
+            </div>
+            <input type="submit" id="lint" value="submit" ><br>
+            <Button type="reset" id="nonLint">
+                Reset
+            </Button>
+
+        </form>
+
+    </div>
+
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
