@@ -5,37 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="style.css" rel="styleSheet">
 </head>
 <body>
-    <div>
-        <h1>Calories Tracker</h1>
-        <form id="form1" onsubmit="group1()">
-            <div>
-                <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">BreakFast <br>
-                <input type="radio" id="Lunch" name="meals_type" value="Lunch">Lunch <br>
-                <input type="radio" id="Dinner" name="meals_type" value="Dinner">Dinner
+    <div id="rea">
+        <div id="header">
+            <h2 id="header_1">ADD CALORIE DETAILS</h2>
+            <h3 id="header_2">TIME: HH:MM:SS</h3>
+        </div>
+        <form id="form1" method="post" action="javaScript"  onsubmit="return submitRequest(this)">
+            <div id="sub">
+                <h3>Meal Type</h3>
+            </div>
+            <div id="rock">
+                <div>
+                 <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">BreakFast
+                </div>
+                <div>
+                 <input type="radio" id="Lunch" name="meals_type" value="Lunch">Lunch
+                </div>
+                <div>
+                 <input type="radio" id="Dinner" name="meals_type" value="Dinner">Dinner
+                </div>
+            </div>
+            <div id="cal">
+                <h3>Calories</h3>
             </div>
             <div>
-                <input type="number" placeholder="Add Calories" id="Calories"> : Calories
+                <input type="number" placeholder="Add Calories value" id="Calories">
+            </div>
+            <div id="des">
+                <h3>Description</h3>
             </div>
             <div>
-                <textarea placeholder="please enter Description"></textarea>
+                <textarea placeholder="please enter Description" id="text"></textarea>
             </div>
-            <div>
+            <div id="tim">
+                <h3>Time</h3>
                 <input type="time" id="appt" name="appt">
             </div>
-            <input type="submit" id="lint" value="submit" ><br>
-            <Button type="reset" id="nonLint">
-                Reset
-            </Button>
-
+            <div id="bt">
+                <input type="submit" id="lint" value="submit" >
+                <Button type="reset" id="nonLint" onclick="resetLocal()">
+                    Reset
+                </Button>
+    
+            </div>
         </form>
-
     </div>
+    <div id="my">
+        <table id="lent">
+            <thead id="lie">
+                <th>Meals</th>
+                <th>Calories</th>
+                <th>Time</th>
+                <th>Descreption</th>
+                <th>action</th>
+              
+            </thead>
+            <tbody id="body">
 
-
-
-
+            </tbody>
+        
+        </table>
+    </div>
+    
     <script src="app.js"></script>
 </body>
 </html>

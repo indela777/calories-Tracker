@@ -1,25 +1,93 @@
-const group1 = (e) => {
-    debugger
-    e.preventDefault();
-    let x = document.getElementById('Calories')
-    // console.log(x.value);
+let i =0;
+const breakfastTag= document.getElementById('BreakFast');
+const lunchTag= document.getElementById('Lunch');
+const dinnerTag= document.getElementById('Dinner');
+let x = document.getElementById('Calories')
+const group3 = document.getElementById('text');
+const group4 = document.getElementById('appt');
+const array1 = [] 
+
+const submitRequest = () => {
+    // const group2 = document.getElementById('rock');
+    let y ={}
+
     if (document.getElementById('BreakFast').checked == true && Number(x.value) >= 300 && Number(x.value) <= 700 ) {
-        console.log('checked braedgdm')
+        y.meals=breakfastTag.id;
+        y.calories = x.value;
+
+
     } else if(document.getElementById('Lunch').checked == true && Number(x.value) >= 700 && Number(x.value) <= 900) {
-        console.log('checked lunch');
+        y.meals=lunchTag.id;
+
+        y.calories=x.value
+
+
     }else if(document.getElementById('Dinner').checked == true && Number(x.value) >= 700 && Number(x.value) <= 900) {
-        console.log('checked lunch');
+        y.meals=dinnerTag.id;
+
+        y.calories=x.value
+
+
+
     } else {
-        console.log('please select the meals')
+        alert('please select the meals');
     }
+    y.time = group4.value
+    y.text = group3.value
+    y.id = i;
+    array1.push(y);
+    localStorage.setItem('array1',JSON.stringify( array1));
+    breakfastTag.checked=false;
+    lunchTag.checked=false;
+    dinnerTag.checked=false;
+    x.value='';
+    group3.value='';
+    group4.value ='';
+    dataLocal()
+
+
+    
     return false;
 
+
+
 };
+// set data to localStorage and read the data from localStorage
+const dataLocal = () => {
+    const tell = document.getElementById('body')
+    tell.innerHTML='';
+    i++
+    let come = JSON.parse( localStorage.getItem('array1'));
+    if (come) {
+        come.map( (item) => {
+            let row = document.createElement('tr')
+            row.innerHTML=`
+            <td>${item.meals}</td>
+            <td>${item.calories}</td>
+            <td>${item.time}</td>
+            <td>${item.text}</td>
+            <td><button onclick = 'edit(${item.id})'>edit</button></td>
+            `
+            tell.appendChild(row);
+        })
+    }
+    
+}
+// Remove the data from localstorage and refresh the page
+const resetLocal = () => {
+    localStorage.clear();
+    window.location.href=`./index.html`
 
 
-// const group2 = document.getElementById('Lunch');
-// const group3 = document.getElementById('Dinner');
-// const group4 = document.getElementById('Calories');
-// if (group1.checked === true) {
+}
+// to edit particular iteam in table
+const edit = (id) =>{
+    
+    window.location.href=`./edit.html?=${id}`
+        
+}
+document.addEventListener('DOMContentLoaded',dataLocal())
 
-// }
+
+
+
