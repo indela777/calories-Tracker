@@ -7,6 +7,7 @@ const group3 = document.getElementById('text');
 const group4 = document.getElementById('appt');
 const array1 = [] 
 
+// eslint-disable-next-line no-unused-vars
 const submitRequest = () => {
     // const group2 = document.getElementById('rock');
     let y ={}
@@ -74,6 +75,7 @@ const dataLocal = () => {
     
 }
 // Remove the data from localstorage and refresh the page
+// eslint-disable-next-line no-unused-vars
 const resetLocal = () => {
     localStorage.clear();
     window.location.href=`./index.html`
@@ -81,6 +83,7 @@ const resetLocal = () => {
 
 }
 // to edit particular iteam in table
+// eslint-disable-next-line no-unused-vars
 const edit = (id) =>{
     
     window.location.href=`./edit.html?=${id}`
@@ -88,6 +91,10 @@ const edit = (id) =>{
 }
 document.addEventListener('DOMContentLoaded',dataLocal())
 
+setInterval(myTimer, 1000);
 
-
+function myTimer() {
+  const date = new Date();
+  document.getElementById("header_2").innerHTML = date.toLocaleTimeString('en-us', { hour: '2-digit', minute: '2-digit', hour12:true});
+}
 
