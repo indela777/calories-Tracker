@@ -8,50 +8,59 @@
     <link href="style.css" rel="styleSheet">
 </head>
 <body>
-    <div id="rea">
-        <div id="header">
-            <h2 id="header_1">ADD CALORIE DETAILS</h2>
-            <h3 id="header_2">TIME: HH:MM:SS</h3>
+    <div id="super">
+        <div id="rea1">
+            <div id="header">
+                <div id="not">
+                    <h3 id="header_1">ADD CALORIE DETAILS</h3>
+                </div>
+                <div id="vin">
+                  <h3 id="ide"> Time:</h3>
+                  <h3 id="header_2">HH :MM</h3>
+                </div>
+            </div>
         </div>
-        <form id="form1" method="post" action="javaScript"  onsubmit="return submitRequest(this)">
-            <div id="sub">
-                <h3>Meal Type</h3>
-            </div>
-            <div id="rock">
-                <div>
-                 <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">BreakFast
+        <div id="rea">
+            <form id="form1" method="post" action="javaScript"  onsubmit="return submitRequest(this)">
+                <div id="sub">
+                    <h3>Meal Type</h3>
+                </div>
+                <div id="rock">
+                    <div>
+                     <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">BreakFast
+                    </div>
+                    <div>
+                     <input type="radio" id="Lunch" name="meals_type" value="Lunch">Lunch
+                    </div>
+                    <div>
+                     <input type="radio" id="Dinner" name="meals_type" value="Dinner">Dinner
+                    </div>
+                </div>
+                <div id="cal">
+                    <h3>Calories</h3>
+                </div>
+                <div id="calorie">
+                    <input type="number" placeholder="Add Calories value" id="Calories" min="300" max="900">
+                </div>
+                <div id="des">
+                    <h3 id="mine">Description</h3>
                 </div>
                 <div>
-                 <input type="radio" id="Lunch" name="meals_type" value="Lunch">Lunch
+                    <textarea placeholder="please enter Description" id="text"></textarea>
                 </div>
-                <div>
-                 <input type="radio" id="Dinner" name="meals_type" value="Dinner">Dinner
+                <div id="tim">
+                    <h3>Time</h3>
+                    <input type="time" id="appt" name="appt">
                 </div>
-            </div>
-            <div id="cal">
-                <h3>Calories</h3>
-            </div>
-            <div>
-                <input type="number" placeholder="Add Calories value" id="Calories" min="300" max="900">
-            </div>
-            <div id="des">
-                <h3>Description</h3>
-            </div>
-            <div>
-                <textarea placeholder="please enter Description" id="text"></textarea>
-            </div>
-            <div id="tim">
-                <h3>Time</h3>
-                <input type="time" id="appt" name="appt">
-            </div>
-            <div id="bt">
-                <input type="submit" id="lint" value="submit" >
-                <Button type="reset" id="nonLint" onclick="resetLocal()">
-                    Reset
-                </Button>
+            </form>
+        </div>
+        <div id="bt">
+            <input type="submit" id="lint" value="submit" >
+            <Button type="reset" id="nonLint" onclick="resetLocal()">
+                Reset
+            </Button>
     
-            </div>
-        </form>
+        </div>
     </div>
     <div id="my">
         <table id="lent">

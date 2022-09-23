@@ -31,12 +31,14 @@ function datamap (){
 }
 datamap();
 
+// eslint-disable-next-line no-unused-vars
 const listIteam = () =>{
     
     window.location.href=`./index.html`;
      
 }
 
+// eslint-disable-next-line no-unused-vars
 const upDate = () => {
     const location = window.location.href;
     const id =location.slice(location.length-1,location.length);
