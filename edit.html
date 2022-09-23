@@ -5,26 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="editStyle.css" rel="styleSheet">
 </head>
 <body>
-    <div>
-        <div id="rock">
-            <input type="radio" id="BreakFast2" name="meals_type"  value="BreakFast">BreakFast <br>
-            <input type="radio" id="Lunch2" name="meals_type" value="Lunch">Lunch <br>
-            <input type="radio" id="Dinner2" name="meals_type" value="Dinner">Dinner
+    <div id="page">
+        <div>
+            <h3 id="meal">Meals Type</h3>
+            <div id="dis">
+                <input type="radio" id="BreakFast2" name="meals_type"  value="BreakFast">BreakFast <br>
+                <input type="radio" id="Lunch2" name="meals_type" value="Lunch">Lunch <br>
+                <input type="radio" id="Dinner2" name="meals_type" value="Dinner">Dinner
+            </div>
+
         </div>
         <div>
-            <input type="number" placeholder="Add Calories" id="Calories2"> : Calories
+            <h3 id="calal">Calories</h3>
+            <input type="number" placeholder="Add Calories" id="Calories2">
         </div>
         <div>
+            <h3 id="desc">Description</h3>
             <textarea placeholder="please enter Description" id="text2"></textarea>
         </div>
-        <div>
+        <div id="time_desgin">
+            <h3>TIME</h3>
             <input type="time" id="appt2" name="appt">
         </div>
-        <div>
-         <button onclick="upDate()">update Iteam</button>
-         <button onclick="listIteam()">back</button>
+        <div id="hight">
+         <button id="lef" onclick="upDate()">update Iteam</button>
+         <button id="lip" onclick="listIteam()">back</button>
 
         </div>
     </div>
