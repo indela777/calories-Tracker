@@ -58,9 +58,9 @@ const dataLocal = () => {
     const tell = document.getElementById('body')
     tell.innerHTML='';
     i++
-    let come = JSON.parse( localStorage.getItem('array1'));
-    if (come) {
-        come.map( (item) => {
+    let listCalories = JSON.parse( localStorage.getItem('array1'));
+    if (listCalories) {
+        listCalories.map( (item) => {
             let row = document.createElement('tr')
             row.innerHTML=`
             <td>${item.meals}</td>
