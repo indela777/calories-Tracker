@@ -2,48 +2,48 @@ let i =0;
 const breakfastTag= document.getElementById('BreakFast');
 const lunchTag= document.getElementById('Lunch');
 const dinnerTag= document.getElementById('Dinner');
-let x = document.getElementById('Calories')
-const group3 = document.getElementById('text');
-const group4 = document.getElementById('appt');
+let calorieValue = document.getElementById('Calories')
+const text = document.getElementById('text');
+const time = document.getElementById('appt');
 const array1 = [] 
 
 // eslint-disable-next-line no-unused-vars
 const submitRequest = () => {
     // const group2 = document.getElementById('rock');
-    let y ={}
+    let list ={}
 
-    if (document.getElementById('BreakFast').checked == true && Number(x.value) >= 300 && Number(x.value) <= 700 ) {
-        y.meals=breakfastTag.id;
-        y.calories = x.value;
-
-
-    } else if(document.getElementById('Lunch').checked == true && Number(x.value) >= 700 && Number(x.value) <= 900) {
-        y.meals=lunchTag.id;
-
-        y.calories=x.value
+    if (document.getElementById('BreakFast').checked == true && Number(calorieValue.value) >= 300 && Number(calorieValue.value) <= 700 ) {
+        list.meals=breakfastTag.id;
+        list.calories = calorieValue.value;
 
 
-    }else if(document.getElementById('Dinner').checked == true && Number(x.value) >= 700 && Number(x.value) <= 900) {
-        y.meals=dinnerTag.id;
+    } else if(document.getElementById('Lunch').checked == true && Number(calorieValue.value) >= 700 && Number(calorieValue.value) <= 900) {
+        list.meals=lunchTag.id;
 
-        y.calories=x.value
+        list.calories=calorieValue.value
+
+
+    }else if(document.getElementById('Dinner').checked == true && Number(calorieValue.value) >= 700 && Number(calorieValue.value) <= 900) {
+        list.meals=dinnerTag.id;
+
+        list.calories=calorieValue.value
 
 
 
     } else {
         alert('please select the meals');
     }
-    y.time = group4.value
-    y.text = group3.value
-    y.id = i;
-    array1.push(y);
+    list.time = time.value
+    list.text = text.value
+    list.id = i;
+    array1.push(list);
     localStorage.setItem('array1',JSON.stringify( array1));
     breakfastTag.checked=false;
     lunchTag.checked=false;
     dinnerTag.checked=false;
-    x.value='';
-    group3.value='';
-    group4.value ='';
+    calorieValue.value='';
+    text.value='';
+    time.value ='';
     dataLocal()
 
 
