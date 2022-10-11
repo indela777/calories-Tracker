@@ -1,9 +1,9 @@
 const breakfastTag2= document.getElementById('BreakFast2');
 const lunchTag2= document.getElementById('Lunch2');
 const dinnerTag2= document.getElementById('Dinner2');
-let x2= document.getElementById('Calories2')
-const group32 = document.getElementById('text2');
-const group42 = document.getElementById('appt2');
+let calorieValue2= document.getElementById('Calories2')
+const text2 = document.getElementById('text2');
+const time2 = document.getElementById('appt2');
 
 
 
@@ -25,9 +25,9 @@ function datamap (){
     if(filteredData[0].meals=='Dinner'){
         dinnerTag2.checked=true;
     }
-    x2.value= filteredData[0].calories;
-    group32.value= filteredData[0].text;
-    group42.value= filteredData[0].time;
+    calorieValue2.value= filteredData[0].calories;
+    text2.value= filteredData[0].text;
+    time2.value= filteredData[0].time;
 }
 datamap();
 
@@ -51,27 +51,27 @@ const upDate = () => {
             return item!=filteredData[0]
 
         })
-        let y = {};
-        if (document.getElementById('BreakFast2').checked == true && Number(x2.value) >= 300 && Number(x2.value) <= 700 ) {
-            y.meals='BreakFast';
-            y.calories = x2.value;
+        let list = {};
+        if (document.getElementById('BreakFast2').checked == true && Number(calorieValue2.value) >= 300 && Number(calorieValue2.value) <= 700 ) {
+            list.meals='BreakFast';
+            list.calories = calorieValue2.value;
     
     
-        } else if(document.getElementById('Lunch2').checked == true && Number(x2.value) >= 700 && Number(x2.value) <= 900) {
-            y.meals='Lunch';
+        } else if(document.getElementById('Lunch2').checked == true && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
+            list.meals='Lunch';
     
-            y.calories=x2.value
+            list.calories=calorieValue2.value
     
     
-        }else if(document.getElementById('Dinner2').checked == true && Number(x2.value) >= 700 && Number(x2.value) <= 900) {
-            y.meals='Dinner';
+        }else if(document.getElementById('Dinner2').checked == true && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
+            list.meals='Dinner';
     
-            y.calories=x2.value
+            list.calories=calorieValue2.value
         }
-        y.time = group42.value
-        y.text = group32.value
-        y.id = id;
-        array1.push(y);
+        list.time = time2.value
+        list.text = text2.value
+        list.id = id;
+        array1.push(list);
         localStorage.removeItem('array1')
         localStorage.setItem('array1',JSON.stringify( array1));
         
