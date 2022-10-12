@@ -1,4 +1,3 @@
-let i =0;
 const breakfastTag= document.getElementById('BreakFast');
 const lunchTag= document.getElementById('Lunch');
 const dinnerTag= document.getElementById('Dinner');
@@ -6,37 +5,79 @@ let calorieValue = document.getElementById('Calories')
 const text = document.getElementById('text');
 const time = document.getElementById('appt');
 const array1 = [] 
+let i =0;
+
 
 // eslint-disable-next-line no-unused-vars
 const submitRequest = () => {
     // const group2 = document.getElementById('rock');
     let list ={}
 
-    if (document.getElementById('BreakFast').checked == true && Number(calorieValue.value) >= 300 && Number(calorieValue.value) <= 700 ) {
+
+    if (document.getElementById('BreakFast').checked == true && Number(calorieValue.value) >= 300 && Number(calorieValue.value) <= 700) {
         list.meals=breakfastTag.id;
         list.calories = calorieValue.value;
-
-
+        list.time = time.value
+        list.text = text.value
+        document.getElementById('alertText').style='visibility: hidden; color:red'
+        document.getElementById('alertTime').style = 'visibility: hidden; color:red';
+        document.getElementById('alertPalce').style = 'visibility: hidden; color:red';
+        document.getElementById('alertMeal').style='visibility: hidden; color:red'
     } else if(document.getElementById('Lunch').checked == true && Number(calorieValue.value) >= 700 && Number(calorieValue.value) <= 900) {
         list.meals=lunchTag.id;
-
         list.calories=calorieValue.value
-
-
-    }else if(document.getElementById('Dinner').checked == true && Number(calorieValue.value) >= 700 && Number(calorieValue.value) <= 900) {
+        list.time = time.value
+        list.text = text.value
+        document.getElementById('alertText').style='visibility: hidden; color:red'
+        document.getElementById('alertTime').style = 'visibility: hidden; color:red';
+        document.getElementById('alertPalce').style = 'visibility: hidden; color:red';
+        document.getElementById('alertMeal').style='visibility: hidden; color:red'
+    } else if(document.getElementById('Dinner').checked == true && Number(calorieValue.value) >= 700 && Number(calorieValue.value) <= 900) {
         list.meals=dinnerTag.id;
 
         list.calories=calorieValue.value
-
-
-
-    } else {
-        alert('please select the meals');
+        list.time = time.value
+        list.text = text.value
+        document.getElementById('alertText').style='visibility: hidden; color:red'
+        document.getElementById('alertTime').style = 'visibility: hidden; color:red';
+        document.getElementById('alertPalce').style = 'visibility: hidden; color:red';
+        document.getElementById('alertMeal').style='visibility: hidden; color:red';
     }
-    list.time = time.value
-    list.text = text.value
+
+    if (document.getElementById('BreakFast').checked == true && (Number(calorieValue.value) <= 300 || Number(calorieValue.value) >= 700)) {
+        document.getElementById('alertText').innerHTML='please enter correct value';
+        document.getElementById('alertText').style='visibility: visible; color:red'
+
+
+    } else if(document.getElementById('Lunch').checked == true && (Number(calorieValue.value) <= 700 && Number(calorieValue.value) >= 900) ) {
+        document.getElementById('alertText').innerHTML='please enter correct value';
+        document.getElementById('alertText').style='visibility: visible; color:red'
+
+
+    } else if(document.getElementById('Dinner').checked == true && (Number(calorieValue.value) <= 700 && Number(calorieValue.value) >= 900)) {
+        document.getElementById('alertText').innerHTML='please enter correct value';
+        document.getElementById('alertText').style='visibility: visible; color:red'
+    }
+    if (text.value==='') {
+        document.getElementById('alertPalce').innerHTML = 'please enter the text';
+        document.getElementById('alertPalce').style = 'visibility: visible; color:red';
+    }
+    if (time.value==='') {
+        document.getElementById('alertTime').innerHTML = 'please enter the time';
+        document.getElementById('alertTime').style = 'visibility: visible; color:red';
+    }
+    if (calorieValue.value==='') {
+        document.getElementById('alertText').innerHTML='please enter correct value';
+        document.getElementById('alertText').style='visibility: visible; color:red'
+    }
+    if (breakfastTag.checked===false&&lunchTag.checked===false&&dinnerTag.checked===false) {
+        document.getElementById('alertMeal').innerHTML='please select any meal';
+        document.getElementById('alertMeal').style='visibility: visible; color:red'
+    }
     list.id = i;
-    array1.push(list);
+    if (list.meals!==undefined&&list.calories!==undefined&&list.time!==undefined&&list.text!==undefined) {
+        array1.push(list); 
+    }
     localStorage.setItem('array1',JSON.stringify( array1));
     breakfastTag.checked=false;
     lunchTag.checked=false;
@@ -45,13 +86,7 @@ const submitRequest = () => {
     text.value='';
     time.value ='';
     dataLocal()
-
-
-    
     return false;
-
-
-
 };
 // set data to localStorage and read the data from localStorage
 const dataLocal = () => {
