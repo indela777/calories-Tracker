@@ -23,10 +23,10 @@
         <div id="rea">
             <form id="form1" method="post" action="javaScript"  onsubmit="return submitRequest(this)">
                 <div id="sub">
-                    <h3>Meal Type</h3>
+                    <h3 style="margin: 0%;">Meal Type</h3>
                 </div>
                 <span id="alertMeal"></span>
-                <div id="rock">
+                <div id="rock" style="margin: 5px;">
                     <div>
                      <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">BreakFast
                     </div>
@@ -38,50 +38,48 @@
                     </div>
                 </div>
                 <div id="cal">
-                    <h3>Calories</h3>
+                    <h3 style="margin: 0%;">Calories</h3>
                 </div>
                 <span id="alertText"></span>
                 <div id="calorie">
-                    <input type="number" placeholder="Add Calories value" id="Calories" min="300" max="900">
+                    <input type="number" placeholder="Add Calories value" id="Calories" >
                 </div>
                 <div id="des">
-                    <h3 id="mine">Description</h3>
+                    <h3 id="mine" style="margin: 0%;">Description</h3>
                 </div>
                 <span id="alertPalce"></span>
                 <div>
                     <textarea placeholder="please enter Description" id="text"></textarea>
                 </div>
                 <span id="alertTime"></span>
-                <div id="tim">
-                    <h3>Time</h3>
+                <div id="tim" style="margin: 0%;">
+                    <h3 style="margin: 0%;">Time</h3>
                     <input type="time" id="appt">
                 </div>
             </form>
         </div>
-        <div id="bt">
-            <input type="submit" id="lint" value="submit" onclick="submitRequest()" >
-            <Button type="reset" id="nonLint" onclick="resetLocal()">
-                Reset
-            </Button>
-    
-        </div>
     </div>
-    <div id="my">
-        <table id="lent">
-            <thead id="lie">
-                <th>Meals</th>
-                <th>Calories</th>
-                <th>Time</th>
-                <th>Description</th>
-                <th>action</th>
-              
-            </thead>
-            <tbody id="body">
+    <div id="bt">
+        <input type="submit" id="lint" value="submit" style="color: white;" onclick="submitRequest()" >
+        <Button type="reset" id="nonLint"style="color: white;" onclick="resetLocal()">
+            Reset
+        </Button>
 
-            </tbody>
-        
-        </table>
     </div>
+    <table id="lent">
+        <thead id="lie">
+            <th>Meals</th>
+            <th>Calories</th>
+            <th>Time</th>
+            <th>Description</th>
+            <th>action</th>
+          
+        </thead>
+        <tbody id="body">
+
+        </tbody>
+    
+    </table>
     
     <script src="app.js"></script>
 </body>
