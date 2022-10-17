@@ -213,6 +213,9 @@ span{
     margin: 8px 0;
     box-sizing: border-box;
 }
+#alerts{
+    display: none;
+}
 /* #container{
     margin-left: 30%;
 } */
