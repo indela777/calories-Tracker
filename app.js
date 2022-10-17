@@ -12,6 +12,7 @@ const dinnerTag2= document.getElementById('Dinner2');
 let calorieValue2= document.getElementById('Calories2')
 const text2 = document.getElementById('text2');
 const time2 = document.getElementById('appt2');
+const alerts = document.getElementById('alerts')
 
 
 
@@ -151,6 +152,7 @@ const edit = (id) =>{
     let marble = document.getElementById('lime')
     marble.addEventListener('click', () =>{
         upDate(id);
+        
     })
         
 }
@@ -197,8 +199,8 @@ const upDate = (id) => {
         array1.push(list);
         localStorage.removeItem('array1')
         localStorage.setItem('array1',JSON.stringify( array1));
-        
-    alert('updated successfuly')
+    alerts.style.display='block';
+    
 }
 const listIteam = () =>{
     
