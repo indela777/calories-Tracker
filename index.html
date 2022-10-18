@@ -54,7 +54,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" id="lime" class="btn btn-primary">update Iteam</button>
-          <button type="button" class="btn btn-secondary" onclick="listIteam()"data-bs-dismiss="modal">back</button>
+          <button type="button" class="btn btn-secondary" id="listIteam" data-bs-dismiss="modal">back</button>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
             </div>
         </div>
         <div id="rea">
-            <form id="form1" method="post" action="javaScript"  onsubmit="return submitRequest(this)">
+            <form id="form1">
                 <div id="sub">
                     <h3 style="margin: 0%;">Meal Type</h3>
                 </div>
@@ -111,8 +111,8 @@
         </div>
     </div>
     <div id="bt">
-        <input type="submit" id="lint" value="submit" style="color: white;" onclick="submitRequest()" >
-        <Button type="reset" id="nonLint"style="color: white;" onclick="resetLocal()">
+        <input type="submit" id="lint" value="submit" style="color: white;">
+        <Button type="reset" id="nonLint"style="color: white;">
             Reset
         </Button>
 

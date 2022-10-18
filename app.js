@@ -17,35 +17,115 @@ const alertText = document.getElementById('alertText');
 const alertTime = document.getElementById('alertTime');
 const alertPalce = document.getElementById('alertPalce');
 const alertMeal = document.getElementById('alertMeal');
+const formSubmit = document.getElementById('lint');
+const reset = document.getElementById('nonLint');
+const listIteam = document.getElementById('listIteam');
 
-/* dataLocal will render the data form localstorage and display data in table below */
+/**
+ * upDate will collect the data which user has changes
+ * and store the data with same id in localstorage
+ * @param {number} id = which as unique value
+*/
+const upDate = (id) => {
+  const data = JSON.parse(localStorage.getItem('array1'));
+  const filteredData = data.filter((item) => item.id === id);
+  const array2 = data.filter((item) => item !== filteredData[0]);
+  const list = {};
+  if (breakfastTag2.checked === true
+    && Number(calorieValue2.value) >= 300 && Number(calorieValue2.value) <= 700) {
+    list.meals = 'BreakFast';
+    list.calories = calorieValue2.value;
+  } else if (lunchTag2.checked === true
+    && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
+    list.meals = 'Lunch';
+    list.calories = calorieValue2.value;
+  } else if (dinnerTag2.checked === true
+    && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
+    list.meals = 'Dinner';
+    list.calories = calorieValue2.value;
+  }
+  list.time = time2.value;
+  list.text = text2.value;
+  list.id = id;
+  array2.push(list);
+  localStorage.removeItem('array1');
+  localStorage.setItem('array1', JSON.stringify(array2));
+  alerts.style.display = 'block';
+};
+
+/**
+ *edit is used to edit the data that provided by the user to make any changes
+ * @param {number} id = which as unique value
+*/
+// eslint-disable-next-line no-unused-vars
+const edit = (id) => {
+  const data = JSON.parse(localStorage.getItem('array1'));
+  const filteredData = data.filter((item) => item.id === id);
+  if (filteredData[0].meals === 'BreakFast') {
+    breakfastTag2.checked = true;
+  }
+  if (filteredData[0].meals === 'Lunch') {
+    lunchTag2.checked = true;
+  }
+  if (filteredData[0].meals === 'Dinner') {
+    dinnerTag2.checked = true;
+  }
+  calorieValue2.value = filteredData[0].calories;
+  text2.value = filteredData[0].text;
+  time2.value = filteredData[0].time;
+  const marble = document.getElementById('lime');
+  marble.addEventListener('click', () => {
+    upDate(id);
+  });
+};
+
+/**
+ *datalocal will render the data from localstorage and display in table
+*/
 const dataLocal = () => {
   const tell = document.getElementById('body');
   tell.innerHTML = '';
   i += 1;
   const listCalories = JSON.parse(localStorage.getItem('array1'));
   if (listCalories) {
-    // eslint-disable-next-line array-callback-return
     listCalories.map((item) => {
       const row = document.createElement('tr');
       row.innerHTML = `
-              <td>${item.meals}</td>
-              <td>${item.calories}</td>
-              <td>${item.time}</td>
-              <td>${item.text}</td>
-              <td>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick = 'edit(${item.id})'><i class="bi bi-pencil-fill" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">edit</i></button>
-              <button class="btn btn-danger" onclick = 'Delete(${item.id})'><i class="bi bi-trash" viewBox="0 0 16 16"width="16" height="16" fill="currentColor">delete</i></button>
-              </td>
-              `;
+        <td>${item.meals}</td>
+        <td>${item.calories}</td>
+        <td>${item.time}</td>
+        <td>${item.text}</td>
+        <td>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id ="edit" onclick='edit(${item.id})'>
+          <i class="bi bi-pencil-fill" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">edit</i>
+        </button>
+        <button class="btn btn-danger" onclick = 'Delete(${item.id})'>
+          <i class="bi bi-trash" viewBox="0 0 16 16"width="16" height="16" fill="currentColor">delete</i>
+        </button>
+        </td>
+        `;
       tell.appendChild(row);
+      return null;
     });
   }
 };
 
-/* submitRequest will collect the data provide by the user and store the data in localstorage */
+/**
+ *Delete is used to Delete the data in localstorage
+ * @param {number} id = which as unique value
+*/
 // eslint-disable-next-line no-unused-vars
-const submitRequest = () => {
+const Delete = (id) => {
+  const listCalori = JSON.parse(localStorage.getItem('array1'));
+  const updatedList = listCalori.filter((item) => item.id !== id);
+  localStorage.setItem('array1', JSON.stringify(updatedList));
+  dataLocal();
+};
+
+/**
+ *submitRequest will collect the data provide by the user and store the data in localstorage
+*/
+formSubmit.addEventListener('click', () => {
   const list = {};
   if (breakfastTag.checked === true
     && Number(calorieValue.value) >= 300 && Number(calorieValue.value) <= 700) {
@@ -110,8 +190,11 @@ const submitRequest = () => {
     alertMeal.style = 'visibility: visible; color:red';
   }
   list.id = i;
-  // eslint-disable-next-line max-len
-  if (list.meals !== undefined || list.calories !== undefined || list.time !== undefined || list.text !== undefined) {
+
+  if (list.meals !== undefined
+    || list.calories !== undefined
+    || list.time !== undefined
+    || list.text !== undefined) {
     array1.push(list);
     localStorage.setItem('array1', JSON.stringify(array1));
   }
@@ -123,86 +206,28 @@ const submitRequest = () => {
   time.value = '';
   dataLocal();
   return false;
-};
+});
 
-/* resetLocal this function will delete the data stored in the localstorage */
-// eslint-disable-next-line no-unused-vars
-const resetLocal = () => {
+/**
+ *resetLocal this function will delete the data stored in the localstorage
+*/
+reset.addEventListener('click', () => {
   localStorage.clear();
   window.location.href = './index.html';
-};
+});
 
-/* upDate will collect the data which user has changes
- and store the data with same id in localstorage */
-const upDate = (id) => {
-  const data = JSON.parse(localStorage.getItem('array1'));
-  const filteredData = data.filter((item) => item.id === id);
-  // eslint-disable-next-line no-shadow
-  const array1 = data.filter((item) => item !== filteredData[0]);
-  const list = {};
-  if (breakfastTag2.checked === true
-    && Number(calorieValue2.value) >= 300 && Number(calorieValue2.value) <= 700) {
-    list.meals = 'BreakFast';
-    list.calories = calorieValue2.value;
-  } else if (lunchTag2.checked === true
-    && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
-    list.meals = 'Lunch';
-    list.calories = calorieValue2.value;
-  } else if (dinnerTag2.checked === true
-    && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
-    list.meals = 'Dinner';
-    list.calories = calorieValue2.value;
-  }
-  list.time = time2.value;
-  list.text = text2.value;
-  list.id = id;
-  array1.push(list);
-  localStorage.removeItem('array1');
-  localStorage.setItem('array1', JSON.stringify(array1));
-  alerts.style.display = 'block';
-};
-
-/* edit is used to edit the data that provided by the user to make any changes with particular id */
-// eslint-disable-next-line no-unused-vars
-const edit = (id) => {
-  const data = JSON.parse(localStorage.getItem('array1'));
-  const filteredData = data.filter((item) => item.id === id);
-  if (filteredData[0].meals === 'BreakFast') {
-    breakfastTag2.checked = true;
-  }
-  if (filteredData[0].meals === 'Lunch') {
-    lunchTag2.checked = true;
-  }
-  if (filteredData[0].meals === 'Dinner') {
-    dinnerTag2.checked = true;
-  }
-  calorieValue2.value = filteredData[0].calories;
-  text2.value = filteredData[0].text;
-  time2.value = filteredData[0].time;
-  const marble = document.getElementById('lime');
-  marble.addEventListener('click', () => {
-    upDate(id);
-  });
-};
-
-/* Delete is used to Delete the data in localstorage with particular id */
-// eslint-disable-next-line no-unused-vars
-const Delete = (id) => {
-  const listCalori = JSON.parse(localStorage.getItem('array1'));
-  const updatedList = listCalori.filter((item) => item.id !== id);
-  localStorage.setItem('array1', JSON.stringify(updatedList));
-  dataLocal();
-};
-
-/* listIteam is used to render back when edit button is clicked with particular id */
-// eslint-disable-next-line no-unused-vars
-const listIteam = () => {
+/**
+ * this function is used to render back when edit button is clicked with particular id
+*/
+listIteam.addEventListener('click', () => {
   window.location.href = './index.html';
-};
+});
 
 document.addEventListener('DOMContentLoaded', dataLocal());
 
-/* myTimer will display the current time in the ui */
+/**
+ * myTimer will display the current time in the ui
+*/
 function myTimer() {
   const date = new Date();
   document.getElementById('header_2').innerHTML = date.toLocaleTimeString('en-us', { hour: '2-digit', minute: '2-digit', hour12: true });
