@@ -18,6 +18,7 @@ const alertTime = document.getElementById('alertTime');
 const alertPalce = document.getElementById('alertPalce');
 const alertMeal = document.getElementById('alertMeal');
 
+/* dataLocal will render the data form localstorage and display data in table below */
 const dataLocal = () => {
   const tell = document.getElementById('body');
   tell.innerHTML = '';
@@ -42,6 +43,7 @@ const dataLocal = () => {
   }
 };
 
+/* submitRequest will collect the data provide by the user and store the data in localstorage */
 // eslint-disable-next-line no-unused-vars
 const submitRequest = () => {
   const list = {};
@@ -123,11 +125,15 @@ const submitRequest = () => {
   return false;
 };
 
+/* resetLocal this function will delete the data stored in the localstorage */
 // eslint-disable-next-line no-unused-vars
 const resetLocal = () => {
   localStorage.clear();
   window.location.href = './index.html';
 };
+
+/* upDate will collect the data which user has changes
+ and store the data with same id in localstorage */
 const upDate = (id) => {
   const data = JSON.parse(localStorage.getItem('array1'));
   const filteredData = data.filter((item) => item.id === id);
@@ -156,6 +162,7 @@ const upDate = (id) => {
   alerts.style.display = 'block';
 };
 
+/* edit is used to edit the data that provided by the user to make any changes with particular id */
 // eslint-disable-next-line no-unused-vars
 const edit = (id) => {
   const data = JSON.parse(localStorage.getItem('array1'));
@@ -174,11 +181,11 @@ const edit = (id) => {
   time2.value = filteredData[0].time;
   const marble = document.getElementById('lime');
   marble.addEventListener('click', () => {
-    // eslint-disable-next-line no-use-before-define
     upDate(id);
   });
 };
 
+/* Delete is used to Delete the data in localstorage with particular id */
 // eslint-disable-next-line no-unused-vars
 const Delete = (id) => {
   const listCalori = JSON.parse(localStorage.getItem('array1'));
@@ -187,6 +194,7 @@ const Delete = (id) => {
   dataLocal();
 };
 
+/* listIteam is used to render back when edit button is clicked with particular id */
 // eslint-disable-next-line no-unused-vars
 const listIteam = () => {
   window.location.href = './index.html';
@@ -194,6 +202,7 @@ const listIteam = () => {
 
 document.addEventListener('DOMContentLoaded', dataLocal());
 
+/* myTimer will display the current time in the ui */
 function myTimer() {
   const date = new Date();
   document.getElementById('header_2').innerHTML = date.toLocaleTimeString('en-us', { hour: '2-digit', minute: '2-digit', hour12: true });
