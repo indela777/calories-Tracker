@@ -2,9 +2,12 @@
 import dataLocal from './app.js';
 
 const Delete = (id) => {
-  const listCalorie = JSON.parse(localStorage.getItem('array1'));
-  const updatedList = listCalorie.filter((item) => item.id !== id);
-  localStorage.setItem('array1', JSON.stringify(updatedList));
-  dataLocal();
+  const itemDelete = document.getElementById('itemDelete');
+  itemDelete.addEventListener('click', () => {
+    const listCalorie = JSON.parse(localStorage.getItem('array1'));
+    const updatedList = listCalorie.filter((item) => item.id != id);
+    localStorage.setItem('array1', JSON.stringify(updatedList));
+    dataLocal();
+  });
 };
 export default Delete;

@@ -1,14 +1,15 @@
+// eslint-disable-next-line import/no-cycle, import/extensions
+import edit from './edit.js';
+
 const breakfastTag2 = document.getElementById('BreakFast2');
 const lunchTag2 = document.getElementById('Lunch2');
 const dinnerTag2 = document.getElementById('Dinner2');
 const calorieValue2 = document.getElementById('Calories2');
 const text2 = document.getElementById('text2');
-const time2 = document.getElementById('appt2');
+const time2 = document.getElementById('apps2');
 const alerts = document.getElementById('alerts');
 const upDate = (id) => {
   const data = JSON.parse(localStorage.getItem('array1'));
-  const filteredData = data.filter((item) => item.id === id);
-  const array2 = data.filter((item) => item !== filteredData[0]);
   const list = {};
   if (breakfastTag2.checked === true
       && Number(calorieValue2.value) >= 300 && Number(calorieValue2.value) <= 700) {
@@ -25,10 +26,16 @@ const upDate = (id) => {
   }
   list.time = time2.value;
   list.text = text2.value;
-  list.id = id;
-  array2.push(list);
+  list.id = +id;
+  const newData = data.map((item) => (item.id !== list.id ? item : list));
   localStorage.removeItem('array1');
-  localStorage.setItem('array1', JSON.stringify(array2));
+  localStorage.setItem('array1', JSON.stringify(newData));
   alerts.style.display = 'block';
+  const watch = document.querySelectorAll('.edit');
+  watch.forEach((el) => {
+    el.addEventListener('click', () => {
+      edit(id);
+    });
+  });
 };
 export default upDate;

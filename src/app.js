@@ -9,6 +9,7 @@ const dinnerTag = document.getElementById('Dinner');
 const calorieValue = document.getElementById('Calories');
 const text = document.getElementById('text');
 const time = document.getElementById('apps');
+let base64;
 const array1 = [];
 let i = 0;
 
@@ -49,49 +50,100 @@ const dataLocal = () => {
         <td>${item.time}</td>
         <td>${item.text}</td>
         <td>
-        <button type="button" class="btn btn-primary edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  id ='edit'>
-          <i class="bi bi-pencil-fill" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">edit</i>
+        <button type="button" class="btn btn-primary edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" value = ${item.id}>
+        edit
         </button>
-        <button class="btn btn-danger delete" id=${item.id}>
-          <i class="bi bi-trash" viewBox="0 0 16 16"width="16" height="16" fill="currentColor">delete</i>
+        <button type="button" class="btn btn-danger delete" value= ${item.id} data-bs-toggle="modal" data-bs-target="#exampleModal">
+        delete
         </button>
         </td>
+        <td><img src = ${item.image}  class = 'imag' ></td>
         `;
       tell.appendChild(row);
-      const some = document.getElementById('edit');
-      some.addEventListener('click', () => {
-        edit(item.id);
-      });
+
+      // debugger
       return null;
     });
+    const some = document.querySelectorAll('.edit');
+    some.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        console.log(e.target);
+        edit(Number(e.target.value));
+      });
+    });
+    const dele = document.querySelectorAll('.delete');
+    dele.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        console.log(e.target);
+        Delete(e.target.value);
+      });
+    });
+    // itemDelete.addEventListener('click', () => {
+
+    // });
+    // const imageFile = document.querySelectorAll('.customFile');
+    // imageFile.forEach((el) => {
+    //   el.addEventListener('click', (e) => {
+    //     console.log(e.target);
+    //   });
+    // });
   }
 };
-// const some = document.getElementById('edit');
-// some.addEventListener('click', () => {
-//   // edit(item.id);
+// image.addEventListener('change', function () {
+//   const reader = new FileReader();
+//   reader.addEventListener('load', () => {
+//     const uploaded_image = reader.result;
+//     document.querySelector('#display-image').style.backgroundImage = `url(${uploaded_image})`;
+//   });
+//   reader.readAsDataURL(this.files[0]);
 // });
-// console.log(some);
-// const del = document.querySelector('delete');
-// del.addEventListener('click', () => {
-//   Delete(item.id);
-// });
+// file.addEventListener('change', () => {
+  //   const reader = new FileReader();
+  //   reader.addEventListener('load', () => {
+//     base64 = reader.result;
+//     console.log(base64);
+//   });
 
+//   reader.readAsDataURL(this.);
+// });
+// console.log(file);
+// fileEl.addEventListener('change', () => {
+//   const reader = new FileReader();
+//   reader.addEventListener('load', () => {
+//     base64 = reader.result;
+//     console.log(base64);
+//     // return base64;
+//   });
+
+//   if (fileEl) { reader.readAsDataURL(fileEl.file[0]); }
+// });
+// console.log(fileEl);
 /**
- *Delete is used to Delete the data in localstorage
- * @param {number} id = which as unique value
-*/
-// eslint-disable-next-line no-unused-vars
-/**
- *submitRequest will collect the data provide by the user and store the data in localstorage
-*/
+     *submitRequest will collect the data provide by the user and store the data in localstorage
+     */
+
 formSubmit.addEventListener('click', () => {
   const list = {};
+  const fileEl = document.getElementById('image-input').files[0];
+  const imageUpload = () => {
+    debugger
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      base64 = reader.result;
+      console.log(base64);
+    });
+
+    if (fileEl) { reader.readAsDataURL(fileEl); }
+  };
+  imageUpload();
   if (breakfastTag.checked === true
     && Number(calorieValue.value) >= 300 && Number(calorieValue.value) <= 700) {
     list.meals = breakfastTag.id;
     list.calories = calorieValue.value;
     list.time = time.value;
     list.text = text.value;
+    // list.image = base64;
+
     alertText.style = 'visibility: hidden; color:red';
     alertTime.style = 'visibility: hidden; color:red';
     alertPalce.style = 'visibility: hidden; color:red';
@@ -102,6 +154,8 @@ formSubmit.addEventListener('click', () => {
     list.calories = calorieValue.value;
     list.time = time.value;
     list.text = text.value;
+    // list.image = base64;
+
     alertText.style = 'visibility: hidden; color:red';
     alertTime.style = 'visibility: hidden; color:red';
     alertPalce.style = 'visibility: hidden; color:red';
@@ -113,6 +167,8 @@ formSubmit.addEventListener('click', () => {
     list.calories = calorieValue.value;
     list.time = time.value;
     list.text = text.value;
+    // list.image = base64;
+
     alertText.style = 'visibility: hidden; color:red';
     alertTime.style = 'visibility: hidden; color:red';
     alertPalce.style = 'visibility: hidden; color:red';
@@ -149,20 +205,22 @@ formSubmit.addEventListener('click', () => {
     alertMeal.style = 'visibility: visible; color:red';
   }
   list.id = i;
-
+  list.image = base64;
   if (list.meals !== undefined
     || list.calories !== undefined
     || list.time !== undefined
-    || list.text !== undefined) {
+    || list.text !== undefined || list.image !== undefined) {
     array1.push(list);
     localStorage.setItem('array1', JSON.stringify(array1));
   }
+
   breakfastTag.checked = false;
   lunchTag.checked = false;
   dinnerTag.checked = false;
   calorieValue.value = '';
   text.value = '';
   time.value = '';
+  fileEl.value = '';
   dataLocal();
   return false;
 });
@@ -192,4 +250,5 @@ setInterval(() => {
   const date = new Date();
   document.getElementById('header_2').innerHTML = date.toLocaleTimeString('en-us', { hour: '2-digit', minute: '2-digit', hour12: true });
 }, 1000);
+
 export default dataLocal;

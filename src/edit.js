@@ -1,15 +1,16 @@
-// eslint-disable-next-line import/extensions
+// eslint-disable-next-line import/extensions, import/no-cycle
 import upDate from './update.js';
 
+const marble = document.getElementById('lime');
 const breakfastTag2 = document.getElementById('BreakFast2');
 const lunchTag2 = document.getElementById('Lunch2');
 const dinnerTag2 = document.getElementById('Dinner2');
 const calorieValue2 = document.getElementById('Calories2');
 const text2 = document.getElementById('text2');
 const time2 = document.getElementById('apps2');
-const edit = (id) => {
+const edit = (value) => {
   const data = JSON.parse(localStorage.getItem('array1'));
-  const filteredData = data.filter((item) => item.id === id);
+  const filteredData = data.filter((item) => item.id == value);
   if (filteredData[0].meals === 'BreakFast') {
     breakfastTag2.checked = true;
   }
@@ -22,9 +23,9 @@ const edit = (id) => {
   calorieValue2.value = filteredData[0].calories;
   text2.value = filteredData[0].text;
   time2.value = filteredData[0].time;
-  const marble = document.getElementById('lime');
-  marble.addEventListener('click', () => {
-    upDate(id);
+  marble.addEventListener('click', (e) => {
+    console.log(e.target);
+    upDate(value);
   });
 };
 export default edit;

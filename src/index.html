@@ -10,6 +10,22 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                Delete item
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete the data
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary " id="itemDelete"  data-bs-dismiss="modal">ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -101,6 +117,9 @@
                 <div>
                     <textarea placeholder="please enter Description" id="text"></textarea>
                 </div>
+                <div>
+                    <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg"/>
+                </div>
                 <span id="alertPalce"></span>
                 <div id="tim" style="margin: 0%;">
                     <h3 style="margin: 0%;">Time</h3>
@@ -124,6 +143,7 @@
             <th>Time</th>
             <th>Description</th>
             <th>action</th>
+            <th>image</th>
           
         </thead>
         <tbody id="body">
