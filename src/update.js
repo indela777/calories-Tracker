@@ -8,6 +8,7 @@ const calorieValue2 = document.getElementById('Calories2');
 const text2 = document.getElementById('text2');
 const time2 = document.getElementById('apps2');
 const alerts = document.getElementById('alerts');
+let base64;
 const upDate = (id) => {
   const data = JSON.parse(localStorage.getItem('array1'));
   const list = {};
@@ -27,9 +28,16 @@ const upDate = (id) => {
   list.time = time2.value;
   list.text = text2.value;
   list.id = +id;
-  const newData = data.map((item) => (item.id !== list.id ? item : list));
-  localStorage.removeItem('array1');
-  localStorage.setItem('array1', JSON.stringify(newData));
+  const fileEl = document.getElementById('image-input1').files[0];
+  const reader = new FileReader();
+  reader.addEventListener('load', () => {
+    base64 = reader.result;
+    list.image = base64;
+    const newData = data.map((item) => (item.id !== list.id ? item : list));
+    localStorage.removeItem('array1');
+    localStorage.setItem('array1', JSON.stringify(newData));
+  });
+  if (fileEl) { reader.readAsDataURL(fileEl); }
   alerts.style.display = 'block';
   const watch = document.querySelectorAll('.edit');
   watch.forEach((el) => {

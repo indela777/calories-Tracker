@@ -5,7 +5,6 @@ body{
 }
 #rea{
     box-sizing: border-box;
-    border: 2px solid gray;
 }
 #super{
     border-collapse: collapse;
@@ -33,6 +32,10 @@ body{
     float: right;
 
 }
+#rock input{
+    width: 20px;
+    height: 20px
+}
 #sub{
     background-color:#9377C8 ;
     justify-items: end;
@@ -51,7 +54,23 @@ body{
   padding: 12px 20px;
   display: inline-block;
   box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
 
+}
+input:focus{
+    outline: none;
+}
+textarea:focus{
+    outline: none;
+}
+#image-input{
+    margin: 10px 2px;
+    border: none;
+    
 }
 #des{
     background-color:#9377C8 ;
@@ -63,54 +82,62 @@ body{
 #tim{
     background-color:#9377C8 ;
     display:flex;
-    height: 5vh;
     justify-content: space-between;
     color: whitesmoke;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-#tim h3{
-    margin-top: 2%;
+.radio{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 #rock{
     display: flex;
-    justify-items: flex-end;
-    padding: 2px; 
+    padding: 6px;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 5px;
+    height: 20%;
 }
 #text{
     width: 100%;
-  height: 150px;
+  height: 100px;
   padding: 12px 20px;
   box-sizing: border-box;
   background-color: #f8f8f8;
   font-size: 16px;
+  border-bottom: 1px solid gray;
   resize: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 #calorie{
     margin: 0px;
 }
 #lint{
-    width: 50%;
-    padding: 10px;
+    padding: 3px;
     background-color: green;
-    float: left;
     cursor:pointer;
+    border-radius: 4px;
+    border: none;
 }
 #nonLint{
-    padding: 10px;
-    width: 50%;
+    padding: 3px;
     background-color: skyblue;
-    float: right;
     cursor:pointer;
+    border-radius: 4px;
+    border: none;
+
 }
 #bt{
-    margin-top: 10px;
-    padding: 3px;
-    border-radius: 4px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 2px;
+    gap: 10px;
     display: flex;
     text-align: center;
-    width: 60vw;
-    margin: auto;
+    float: right;
 }
 table{
     border-collapse: collapse;
@@ -122,14 +149,16 @@ table{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #lent th{
-    padding: 12px;
+    padding: 1px;
   text-align: center;
   background-color: #04AA6D;
   color: white;
+  border: 1px solid #ddd;
 }
-#lent td, #lent th{
+#lent td{
     border: 1px solid #ddd;
   text-align: center;
+  width: 17%;
 }
 span{
  visibility: hidden;
@@ -210,8 +239,15 @@ span{
 .imag{
     width: 200px;
     height: 100px;
-    border: 2px solid gray;
     border-radius: 4px;
+}
+#image{
+    width: 200px;
+    height: 100px;
+    border-radius: 4px;
+}
+#image-Container{
+    margin: 10px;
 }
 #body{
     width: 50%;
