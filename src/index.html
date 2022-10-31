@@ -61,6 +61,15 @@
                     <div>
                         <textarea placeholder="please enter Description" id="text2"></textarea>
                     </div>
+                    <div>
+                        <input type="file" id="image-input1" accept="image/jpeg, image/png, image/jpg" />
+                    </div>
+                    <div id="image-Container">
+                        <img id="image"/>
+                    </div>
+                    <div >
+
+                    </div>
                     <div id="time_desgin">
                         <h3>TIME</h3>
                         <input type="time" id="apps2" name="appt">
@@ -92,16 +101,19 @@
                 <div id="sub">
                     <h3 style="margin: 0%;">Meal Type</h3>
                 </div>
-                <div id="rock" style="margin: 5px;">
-                    <div>
-                     <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">BreakFast
+                <div id="rock">
+                    <div class="radio">
+                     <input type="radio" id="BreakFast" name="meals_type"  value="BreakFast">
+                     <label >BreakFast</label>
                     </div>
-                    <div>
-                     <input type="radio" id="Lunch" name="meals_type" value="Lunch">Lunch
+                    <div class="radio">
+                     <input type="radio" id="Lunch" name="meals_type" value="Lunch">
+                     <label >Lunch</label>
                     </div>
-                    <div>
-                     <input type="radio" id="Dinner" name="meals_type" value="Dinner">Dinner
-                    </div>
+                    <div class="radio">
+                     <input type="radio" id="Dinner" name="meals_type" value="Dinner">
+                     <label >Dinner</label>
+                    </div> 
                 </div>
                 <span id="alertMeal"></span>
                 <div id="cal">
@@ -127,15 +139,16 @@
                 </div>
                 <span id="alertTime"></span>
             </form>
+            <div id="bt">
+                <input type="submit" id="lint" value="Submit" style="color: white;">
+                <Button type="button" id="nonLint"style="color: white;">
+                    Reset
+                </Button>
+        
+            </div>
         </div>
     </div>
-    <div id="bt">
-        <input type="submit" id="lint" value="Submit" style="color: white;">
-        <Button type="button" id="nonLint"style="color: white;">
-            Reset
-        </Button>
-
-    </div>
+    
     <table id="lent">
         <thead id="lie">
             <th>Meals</th>
