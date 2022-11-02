@@ -177,6 +177,10 @@ span{
     border-radius: 4px;
     margin-bottom: 100;
 }
+#page span{
+    visibility: hidden;
+ background-color: rgba(0, 255, 0, 0.2);
+}
 #dis{
     display: flex;
     padding: 2px; 
