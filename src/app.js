@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import edit from './edit.js';
+import edit from './editView.js';
 // eslint-disable-next-line import/no-cycle, import/extensions
 import Delete from './delete.js';
 
@@ -102,15 +102,15 @@ formSubmit.addEventListener('click', () => {
     alertMeal.style = 'visibility: hidden; color:red';
   }
   if (breakfastTag.checked === true
-    && (Number(calorieValue.value) <= 300 || Number(calorieValue.value) >= 700)) {
+    && (Number(calorieValue.value) < 300 || Number(calorieValue.value) > 700)) {
     alertText.innerHTML = 'please enter value between 300 - 700';
     alertText.style = 'visibility: visible; color:red';
   } else if (lunchTag.checked === true
-    && (Number(calorieValue.value) <= 700 || Number(calorieValue.value) >= 900)) {
+    && (Number(calorieValue.value) < 700 || Number(calorieValue.value) > 900)) {
     alertText.innerHTML = 'please enter value between 700 - 900';
     alertText.style = 'visibility: visible; color:red';
   } else if (dinnerTag.checked === true
-    && (Number(calorieValue.value) <= 700 || Number(calorieValue.value) >= 900)) {
+    && (Number(calorieValue.value) < 700 || Number(calorieValue.value) > 900)) {
     alertText.innerHTML = 'please enter value between 700 - 900';
     alertText.style = 'visibility: visible; color:red';
   }

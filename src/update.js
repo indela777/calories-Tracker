@@ -1,5 +1,6 @@
+/* eslint-disable no-dupe-else-if */
 // eslint-disable-next-line import/no-cycle, import/extensions
-import edit from './edit.js';
+import edit from './editView.js';
 
 const breakfastTag2 = document.getElementById('BreakFast2');
 const lunchTag2 = document.getElementById('Lunch2');
@@ -12,6 +13,7 @@ let base64;
 const upDate = (id) => {
   const data = JSON.parse(localStorage.getItem('array1'));
   const list = {};
+
   if (breakfastTag2.checked === true
       && Number(calorieValue2.value) >= 300 && Number(calorieValue2.value) <= 700) {
     list.meals = 'BreakFast';
@@ -24,10 +26,14 @@ const upDate = (id) => {
       && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
     list.meals = 'Dinner';
     list.calories = calorieValue2.value;
+  } else {
+    alert('please enter correct calories value');
+    return;
   }
+
   list.time = time2.value;
   list.text = text2.value;
-  list.id = +id;
+  list.id = id;
   const fileEl = document.getElementById('image-input1').files[0];
   const reader = new FileReader();
   reader.addEventListener('load', () => {
@@ -37,8 +43,20 @@ const upDate = (id) => {
     localStorage.removeItem('array1');
     localStorage.setItem('array1', JSON.stringify(newData));
   });
-  if (fileEl) { reader.readAsDataURL(fileEl); }
+  if (fileEl) { reader.readAsDataURL(fileEl); } else {
+    const newData = data.map((item) => {
+      if (item.id !== list.id) {
+        return item;
+      }
+      list.image = item.image;
+      return list;
+    });
+    localStorage.removeItem('array1');
+    localStorage.setItem('array1', JSON.stringify(newData));
+  }
+
   alerts.style.display = 'block';
+
   const watch = document.querySelectorAll('.edit');
   watch.forEach((el) => {
     el.addEventListener('click', () => {
