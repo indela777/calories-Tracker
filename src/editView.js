@@ -9,6 +9,7 @@ const calorieValue2 = document.getElementById('Calories2');
 const text2 = document.getElementById('text2');
 const time2 = document.getElementById('apps2');
 const image = document.getElementById('image');
+let base55;
 const edit = (value) => {
   const data = JSON.parse(localStorage.getItem('array1'));
   const filteredData = data.filter((item) => item.id == value);
@@ -29,7 +30,7 @@ const edit = (value) => {
   fileEl.addEventListener('change', () => {
     const reader = new FileReader();
     reader.addEventListener('load', () => {
-      const base55 = reader.result;
+      base55 = reader.result;
       image.src = base55;
     });
     if (fileEl) { reader.readAsDataURL(fileEl.files[0]); }
