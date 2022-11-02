@@ -55,12 +55,16 @@
                     <div>
                         <input type="number" placeholder="Add Calories" id="Calories2">
                     </div>
+                    <span id="alertText2"></span>
+
                     <div>
                         <h3 id="desc">Description</h3>
                     </div>
                     <div>
                         <textarea placeholder="please enter Description" id="text2"></textarea>
                     </div>
+                    <span id="alertPalce2"></span>
+
                     <div>
                         <input type="file" id="image-input1" accept="image/jpeg, image/png, image/jpg" />
                     </div>
@@ -74,12 +78,14 @@
                         <h3>TIME</h3>
                         <input type="time" id="apps2" name="appt">
                     </div>
+                    <span id="alertTime2"></span>
+
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" id="lime" class="btn btn-primary">UpdateItem</button>
-          <button type="button" class="btn btn-secondary" id="listIteam" data-bs-dismiss="modal">back</button>
+          <button type="button" class="btn btn-secondary" id="listIteam" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -117,7 +123,7 @@
                 </div>
                 <span id="alertMeal"></span>
                 <div id="cal">
-                    <h3 style="margin: 0%;">Calories</h3>
+                    <h3>Calories</h3>
                 </div>
                 <div id="calorie">
                     <input type="number" placeholder="Add Calories value" id="Calories">
@@ -129,23 +135,23 @@
                 <div>
                     <textarea placeholder="please enter Description" id="text"></textarea>
                 </div>
+                <span id="alertPalce"></span>
                 <div>
                     <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" style="padding-left: 15px;" />
                 </div>
-                <span id="alertPalce"></span>
                 <div id="tim" style="margin: 0%;">
                     <h3 style="margin: 0%;">Time</h3>
                     <input type="time" id="apps">
                 </div>
                 <span id="alertTime"></span>
             </form>
-            <div id="bt">
-                <input type="submit" id="lint" value="Submit" style="color: white;">
-                <Button type="button" id="nonLint"style="color: white;">
-                    Reset
-                </Button>
-        
-            </div>
+        </div>
+        <div id="bt">
+            <input type="submit" id="lint" value="Submit" style="color: white;">
+            <Button type="button" id="nonLint"style="color: white;">
+                Reset
+            </Button>
+    
         </div>
     </div>
     
