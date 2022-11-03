@@ -5,7 +5,7 @@ const Delete = (id) => {
   const itemDelete = document.getElementById('itemDelete');
   itemDelete.addEventListener('click', () => {
     const listCalorie = JSON.parse(localStorage.getItem('array1'));
-    const updatedList = listCalorie.filter((item) => item.id != id);
+    const updatedList = listCalorie.filter((item) => item.id !== +id);
     localStorage.setItem('array1', JSON.stringify(updatedList));
     dataLocal();
   });

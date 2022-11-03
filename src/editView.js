@@ -12,7 +12,7 @@ const image = document.getElementById('image');
 let base55;
 const edit = (value) => {
   const data = JSON.parse(localStorage.getItem('array1'));
-  const filteredData = data.filter((item) => item.id == value);
+  const filteredData = data.filter((item) => item.id === +value);
   if (filteredData[0].meals === 'BreakFast') {
     breakfastTag2.checked = true;
   }

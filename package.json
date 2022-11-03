@@ -5,6 +5,24 @@
   "dependencies": {
     "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.9.1",
-    "eslint-config-airbnb": "^19.0.4"
-  }
+    "eslint-config-airbnb": "^19.0.4",
+    "express": "^4.18.2"
+  },
+  "name": "calories-tracker",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indela777/calories-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indela777/calories-Tracker/issues"
+  },
+  "homepage": "https://github.com/indela777/calories-Tracker#readme",
+  "description": ""
 }
