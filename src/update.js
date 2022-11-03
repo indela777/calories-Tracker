@@ -90,10 +90,8 @@ const upDate = (id) => {
       localStorage.setItem('array1', JSON.stringify(newData));
     }
 
-    alerts.style.display = 'block';
+    alerts.style = 'visibility:visible; display:block';
   }
-  //   list.time = time2.value;
-  //   list.text = text2.value;
 
   const watch = document.querySelectorAll('.edit');
   watch.forEach((el) => {
