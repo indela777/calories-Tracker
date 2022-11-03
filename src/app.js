@@ -20,6 +20,8 @@ const alertMeal = document.getElementById('alertMeal');
 const formSubmit = document.getElementById('lint');
 const reset = document.getElementById('nonLint');
 const listItem = document.getElementById('listItem');
+const alerts = document.getElementById('alerts');
+
 /**
  *dataLocal will render the data from localStorage and display in table
 */
@@ -181,7 +183,8 @@ reset.addEventListener('click', () => {
  * this function is used to render back when edit button is clicked with particular id
 */
 listItem.addEventListener('click', () => {
-  window.location.href = './index.html';
+  dataLocal();
+  alerts.style = 'visibility:hidden';
 });
 
 document.addEventListener('DOMContentLoaded', dataLocal());
