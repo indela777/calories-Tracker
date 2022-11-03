@@ -15,11 +15,11 @@ const array1 = [];
 let i = 0;
 const alertText = document.getElementById('alertText');
 const alertTime = document.getElementById('alertTime');
-const alertPalce = document.getElementById('alertPalce');
+const alertHome = document.getElementById('alertHome');
 const alertMeal = document.getElementById('alertMeal');
 const formSubmit = document.getElementById('lint');
 const reset = document.getElementById('nonLint');
-const listIteam = document.getElementById('listIteam');
+const listItem = document.getElementById('listItem');
 /**
  *dataLocal will render the data from localStorage and display in table
 */
@@ -78,7 +78,7 @@ formSubmit.addEventListener('click', () => {
     list.text = text.value;
     alertText.style = 'visibility: hidden; color:red';
     alertTime.style = 'visibility: hidden; color:red';
-    alertPalce.style = 'visibility: hidden; color:red';
+    alertHome.style = 'visibility: hidden; color:red';
     alertMeal.style = 'visibility: hidden; color:red';
   } else if (lunchTag.checked === true
     && Number(calorieValue.value) >= 700 && Number(calorieValue.value) <= 900) {
@@ -88,7 +88,7 @@ formSubmit.addEventListener('click', () => {
     list.text = text.value;
     alertText.style = 'visibility: hidden; color:red';
     alertTime.style = 'visibility: hidden; color:red';
-    alertPalce.style = 'visibility: hidden; color:red';
+    alertHome.style = 'visibility: hidden; color:red';
     alertMeal.style = 'visibility: hidden; color:red';
   } else if (dinnerTag.checked === true
     && Number(calorieValue.value) >= 700 && Number(calorieValue.value) <= 900) {
@@ -98,7 +98,7 @@ formSubmit.addEventListener('click', () => {
     list.text = text.value;
     alertText.style = 'visibility: hidden; color:red';
     alertTime.style = 'visibility: hidden; color:red';
-    alertPalce.style = 'visibility: hidden; color:red';
+    alertHome.style = 'visibility: hidden; color:red';
     alertMeal.style = 'visibility: hidden; color:red';
   }
   if (breakfastTag.checked === true
@@ -115,8 +115,8 @@ formSubmit.addEventListener('click', () => {
     alertText.style = 'visibility: visible; color:red';
   }
   if (text.value === '') {
-    alertPalce.innerHTML = 'please enter the text';
-    alertPalce.style = 'visibility: visible; color:red';
+    alertHome.innerHTML = 'please enter the text';
+    alertHome.style = 'visibility: visible; color:red';
   }
   if (time.value === '') {
     alertTime.innerHTML = 'please enter the time';
@@ -180,7 +180,7 @@ reset.addEventListener('click', () => {
 /**
  * this function is used to render back when edit button is clicked with particular id
 */
-listIteam.addEventListener('click', () => {
+listItem.addEventListener('click', () => {
   window.location.href = './index.html';
 });
 

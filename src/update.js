@@ -11,7 +11,7 @@ const time2 = document.getElementById('apps2');
 const alerts = document.getElementById('alerts');
 const alertText2 = document.getElementById('alertText2');
 const alertTime2 = document.getElementById('alertTime2');
-const alertPalce2 = document.getElementById('alertPalce2');
+const alertHome2 = document.getElementById('alertHome2');
 
 let base64;
 const upDate = (id) => {
@@ -25,7 +25,7 @@ const upDate = (id) => {
     list.time = time2.value;
     list.text = text2.value;
     alertText2.style = 'visibility: hidden; color:red';
-    alertPalce2.style = 'visibility: hidden; color:red';
+    alertHome2.style = 'visibility: hidden; color:red';
     alertTime2.style = 'visibility: hidden; color:red';
   } else if (lunchTag2.checked === true
         && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
@@ -34,7 +34,7 @@ const upDate = (id) => {
     list.time = time2.value;
     list.text = text2.value;
     alertText2.style = 'visibility: hidden; color:red';
-    alertPalce2.style = 'visibility: hidden; color:red';
+    alertHome2.style = 'visibility: hidden; color:red';
     alertTime2.style = 'visibility: hidden; color:red';
   } else if (dinnerTag2.checked === true
         && Number(calorieValue2.value) >= 700 && Number(calorieValue2.value) <= 900) {
@@ -43,7 +43,7 @@ const upDate = (id) => {
     list.time = time2.value;
     list.text = text2.value;
     alertText2.style = 'visibility: hidden; color:red';
-    alertPalce2.style = 'visibility: hidden; color:red';
+    alertHome2.style = 'visibility: hidden; color:red';
     alertTime2.style = 'visibility: hidden; color:red';
   }
   if (breakfastTag2.checked === true
@@ -59,8 +59,8 @@ const upDate = (id) => {
     alertText2.innerHTML = 'please enter value between 700 - 900';
     alertText2.style = 'visibility: visible; color:red';
   } else if (text2.value === '') {
-    alertPalce2.innerHTML = 'please enter the text';
-    alertPalce2.style = 'visibility: visible; color:red';
+    alertHome2.innerHTML = 'please enter the text';
+    alertHome2.style = 'visibility: visible; color:red';
   } else if (time2.value === '') {
     alertTime2.innerHTML = 'please enter the time';
     alertTime2.style = 'visibility: visible; color:red';
