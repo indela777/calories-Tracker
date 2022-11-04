@@ -1,5 +1,5 @@
 # Description
-the project calories tracker is used to maintain the daily calories of our body to be healty.
+The project calories tracker is used to maintain the daily calories of our body to be healty.
 # Tech stack
   ### Technologies 
    * JAVASCRIPT
