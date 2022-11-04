@@ -1,5 +1,5 @@
 # Description
-The project calories tracker is used to maintain the daily calories of our body to be healty.
+The project calories tracker is used to maintain the daily calories of Human body to be healty.
 # Tech stack
   ### Technologies 
    * JAVASCRIPT
@@ -23,6 +23,12 @@ If you are working on a project that a user needs to install or run locally in a
 * It will run with port 5000    
 ---
 # project images
+* Home page
 <img width="1496" alt="Homepage" src="https://user-images.githubusercontent.com/104062492/199940426-920cb976-7ee0-40cd-b990-e6ff0dc1f904.png">
+*  Editpage
+<img width="1496" alt="Editpage" src="https://user-images.githubusercontent.com/104062492/199942367-90cdd359-3577-4ab5-a1c3-80d28d711f94.png">
+* Update page
+<img width="1496" alt="Updatepage" src="https://user-images.githubusercontent.com/104062492/199942355-cf5ed287-20f8-4b96-8cf9-5c321f304331.png">
+* Delete page
+<img width="1496" alt="Deletepage" src="https://user-images.githubusercontent.com/104062492/199942338-acd5efa6-b4b8-4640-af1c-0153c4a4d01a.png">
 
-* ![Edit]()
